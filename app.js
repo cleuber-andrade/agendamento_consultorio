@@ -80,6 +80,10 @@ class Bd { //3º passo criando banco de dados
         }
         return agendamento    
     }
+
+    pesquisar(localizar){ // 13º passo 
+        console.log(localizar)
+    }
 }
 
 let bd = new Bd()
@@ -260,6 +264,7 @@ function pesquisarAgendamento(){ // 12º passo     botão para pesquisar
         data.value
         )
 
+    bd.pesquisar(pesquisa)    
        
     
 }
