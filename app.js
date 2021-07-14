@@ -76,6 +76,8 @@ class Bd { //3º passo criando banco de dados
                 continue
             }
 
+            agenda.id = i //atributo do id que consta para identificar o id do botão de exclusão
+
             agendamento.push(agenda)
         }
         return agendamento    
@@ -134,8 +136,10 @@ class Bd { //3º passo criando banco de dados
         }
 
         return agendamentoFiltrado
+    }
 
-
+    remover(id){
+        localStorage.removeItem(id)
     }
 
     
@@ -289,7 +293,28 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
 
         let data_a  = new Date(a.data).toLocaleDateString('pt-br')
         linha.insertCell(10).innerHTML = data_a
-    })
+
+        //criar o botão de exclisão
+
+        let btn = document.createElement("button")
+        className = 'btn btn-danger'
+        btn.innerHTML = "<i class='fas fa-times ></i>"
+        btn.id = `id_agenda_${a.id}`
+        btn.onclick = function (){
+            let id = this.id.replace('id_agenda', '')
+
+            let confirmar = id
+            
+            if (confirmar == true){
+                window.confirm('Deseja excluir mesmo esse agendamento?')
+
+                bd.remover(id)                
+                location.reload()
+            }
+        }
+
+            linha.insertCell(11).append(btn)
+    })    
 }
 
 function pesquisarAgendamento(){ // 12º passo     botão para pesquisar
