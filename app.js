@@ -298,7 +298,7 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
 
         let btn = document.createElement("button")
         className = 'btn btn-danger'
-        btn.innerHTML = "<i class='fas fa-times ></i>"
+        btn.innerHTML = "<i class='fas fa-times'></i>"
         btn.id = `id_agenda_${a.id}`
         btn.onclick = function (){
             let id = this.id.replace('id_agenda', '')
@@ -310,10 +310,10 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
 
                 bd.remover(id)                
                 location.reload()
-            }
+            }            
         }
-
-            linha.insertCell(11).append(btn)
+        linha.insertCell(11).append(btn)
+        
     })    
 }
 
