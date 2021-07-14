@@ -81,7 +81,60 @@ class Bd { //3º passo criando banco de dados
         return agendamento    
     }
 
-    pesquisar(){
+    pesquisar(encontrar){  //13º passo
+       
+
+        let agendamentoFiltrado = Array()
+
+        agendamentoFiltrado = this.recuperarTodosRegistros()
+
+
+        if (encontrar.name != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.name == encontrar.name)
+        }
+        
+        if (encontrar.cpf != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.cpf == encontrar.cpf)
+        }
+
+        if (encontrar.carteira != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.carteira == encontrar.carteira)
+        }
+
+        if (encontrar.endereco != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.endereco == encontrar.endereco)
+        }
+
+        if (encontrar.sexo != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.sexo == encontrar.sexo)
+        }
+
+        if (encontrar.nascimento != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.nascimento == encontrar.nascimento)
+        }
+
+        if (encontrar.tel != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.tel == encontrar.tel)
+        }
+
+        if (encontrar.plano != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.plano == encontrar.plano)
+        }
+
+        if (encontrar.especialidades != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.especialidades == encontrar.especialidades)
+        }
+
+        if (encontrar.doutor != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.doutor == encontrar.doutor)
+        }
+
+        if (encontrar.data != ''){
+            agendamentoFiltrado = agendamentoFiltrado.filter(a => a.data == encontrar.data)
+        }
+
+        return agendamentoFiltrado
+
 
     }
 
@@ -163,18 +216,19 @@ function cadastrarAgendamento(){  //1º passo
     }
 }
 
-function carregaListaAgendamento(){  // 9º passo      objetivo dessa função é ser chamada sempre que 
+function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º passo  objetivo dessa função é ser chamada sempre que 
 
-    let agendamento = Array()    
-
-    agendamento = bd.recuperarTodosRegistros()
-
+      
+    if (pesquisar.length == 0 && filtro == false){
+        pesquisar = bd.recuperarTodosRegistros()
+    }
 
     //selecionando o elemento tbody da tabela
     let listaAgendamento = document.getElementById('listaAgendamento') // 11º passo   criando lista para pesquisa
+    listaAgendamento.innerHTML = ''
 
     //vamos percorrer o array agendamento, listando cada agentamento de forma dinanmica    
-    agendamento.forEach(function(a){
+    pesquisar.forEach(function(a){
        
         //criando linha (tr)
         let linha = listaAgendamento.insertRow()
@@ -240,6 +294,7 @@ function carregaListaAgendamento(){  // 9º passo      objetivo dessa função �
 
 function pesquisarAgendamento(){ // 12º passo     botão para pesquisar
 
+   
     let name = document.getElementById('name') 
     let cpf = document.getElementById('cpf')
     let carteira = document.getElementById('carteira')
@@ -265,9 +320,8 @@ function pesquisarAgendamento(){ // 12º passo     botão para pesquisar
         doutor.value, 
         data.value
         )
+
+    let pesquisar = bd.pesquisar(pesquisa)    
     
-    pesquisa = bd.pesquisar(pesquisa) 
-    
-    
-    
+    this.carregaListaAgendamento(pesquisar, true) // 14º passo*/
 }
