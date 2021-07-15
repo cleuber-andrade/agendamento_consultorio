@@ -300,11 +300,9 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.innerHTML = '<i class="fa fa-trash"></i>'
         btn.id = `id_despesa_${a.id}`
         btn.onclick = function (){
-            let id = this.id.replace('id_despesa_', '')
+            let id = this.id.replace('id_despesa_', '')            
 
-            let apagar = id
-
-            if (apagar != ''){            
+            if (id != ''){            
                 confirm('Deseja apagar esse agendemento?')                
                 bd.remover(id)                
             }                   
