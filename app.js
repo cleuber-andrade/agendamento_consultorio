@@ -300,7 +300,8 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.innerHTML = '<i class="fa fa-trash"></i>'
         btn.id = `id_despesa_${a.id}`
         btn.onclick = function (){
-            let id = this.id.replace('id_despesa_', '')           
+            let id = this.id.replace('id_despesa_', '') 
+                     
             
             document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
 
@@ -316,12 +317,11 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
             $('#modalExclusaoAgendamento').modal('show')     
             
             
-            apagar.addEventListener("click", bd.remover(id), location.reload()) 
+            apagar.addEventListener("click", bd.remover(id))
             
             
             
-            
-        }      
+        }     
         
         linha.insertCell(11).append(btn) 
             
