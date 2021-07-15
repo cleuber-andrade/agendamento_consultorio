@@ -295,25 +295,18 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         linha.insertCell(10).innerHTML = data_a
 
         //criar o botão de exclisão
-
-        let btn = document.createElement("button")
-        className = 'btn btn-danger'
-        btn.innerHTML = "<i class='fas fa-times'></i>"
-        btn.id = `id_agenda_${a.id}`
+        let btn = document.createElement('button')
+        btn.className = 'btn btn-danger'
+        btn.innerHTML = '<i class="fa fa-trash"></i>'
+        btn.id = `id_despesa_${a.id}`
         btn.onclick = function (){
-            let id = this.id.replace('id_agenda', '')
+            let id = this.id.replace('id_despesa_', '')
 
-            let confirmar = id
-            
-            if (confirmar == true){
-                window.confirm('Deseja excluir mesmo esse agendamento?')
-
-                bd.remover(id)                
-                location.reload()
-            }            
+                        
+            bd.remover(id)           
+            location.reload()
         }
-        linha.insertCell(11).append(btn)
-        
+        linha.insertCell(11).append(btn)       
     })    
 }
 
