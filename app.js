@@ -302,8 +302,12 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.onclick = function (){
             let id = this.id.replace('id_despesa_', '')
 
-                        
-            bd.remover(id)           
+            let apagar = id
+
+            if (apagar != ''){            
+                confirm('Deseja apagar esse agendemento?')                
+                bd.remover(id)                
+            }                   
             location.reload()
         }
         linha.insertCell(11).append(btn)       
