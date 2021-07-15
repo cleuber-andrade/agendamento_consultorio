@@ -302,11 +302,22 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.onclick = function (){
             let id = this.id.replace('id_despesa_', '')            
 
-            if (id != ''){            
-                confirm('Deseja apagar esse agendemento?')                
-                bd.remover(id)                
-            }                   
-            location.reload()
+            if( id != ''){
+                document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
+
+                document.getElementById('modal_titulo').innerHTML = 'Exclusão de agendamento!'
+
+                document.getElementById('modal_conteudo').innerHTML = 'Deseja excliir esse agendamento?'
+
+                document.getElementById('modal_btn').innerHTML = 'Excluir'
+                document.getElementById('modal_btn').className = 'btn btn-danger'
+
+
+                $('#modalExclusaoAgendamento').modal('show')
+
+                bd.remover(id)               
+            }            
+
         }
         linha.insertCell(11).append(btn)       
     })    
