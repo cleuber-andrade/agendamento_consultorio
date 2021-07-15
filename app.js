@@ -316,7 +316,9 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
             $('#modalExclusaoAgendamento').modal('show')     
             
             
-            apagar.addEventListener("click", bd.remover(id))          
+            apagar.addEventListener("click", bd.remover(id), location.reload()) 
+            
+            
             
             
         }      
