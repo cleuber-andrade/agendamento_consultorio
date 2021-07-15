@@ -300,26 +300,29 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.innerHTML = '<i class="fa fa-trash"></i>'
         btn.id = `id_despesa_${a.id}`
         btn.onclick = function (){
-            let id = this.id.replace('id_despesa_', '')            
+            let id = this.id.replace('id_despesa_', '')           
+            
+            document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
 
-            if( id != ''){
-                document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
+            document.getElementById('modal_titulo').innerHTML = 'Exclusão de agendamento!'
 
-                document.getElementById('modal_titulo').innerHTML = 'Exclusão de agendamento!'
+            document.getElementById('modal_conteudo').innerHTML = 'Deseja excliir esse agendamento?'
 
-                document.getElementById('modal_conteudo').innerHTML = 'Deseja excliir esse agendamento?'
+            let apagar = document.getElementById('modal_btn').innerHTML = 'Excluir'           
+            
 
-                document.getElementById('modal_btn').innerHTML = 'Excluir'
-                document.getElementById('modal_btn').className = 'btn btn-danger'
+            document.getElementById('modal_btn').className = 'btn btn-danger' 
 
-
-                $('#modalExclusaoAgendamento').modal('show')
-
-                bd.remover(id)               
-            }            
-
-        }
-        linha.insertCell(11).append(btn)       
+            $('#modalExclusaoAgendamento').modal('show')     
+            
+            
+            apagar.addEventListener("click", bd.remover(id))          
+            
+            
+        }      
+        
+        linha.insertCell(11).append(btn) 
+            
     })    
 }
 
@@ -356,3 +359,4 @@ function pesquisarAgendamento(){ // 12º passo     botão para pesquisar
     
     this.carregaListaAgendamento(pesquisar, true) // 14º passo*/
 }
+
