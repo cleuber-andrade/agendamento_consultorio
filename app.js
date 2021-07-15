@@ -299,7 +299,9 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.className = 'btn btn-danger'
         btn.innerHTML = '<i class="fa fa-trash"></i>'
         btn.id = `id_despesa_${a.id}`
-        btn.onclick = function (){
+        btn.onclick = function (){             
+            
+
             let id = this.id.replace('id_despesa_', '') 
                      
             
@@ -317,9 +319,10 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
             $('#modalExclusaoAgendamento').modal('show')     
             
             
-            apagar.addEventListener("click", bd.remover(id))
+            apagar.addEventListener("click", bd.remover(id))            
+          
             
-            
+            return true
             
         }     
         
