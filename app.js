@@ -299,12 +299,10 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.className = 'btn btn-danger'
         btn.innerHTML = '<i class="fa fa-trash"></i>'
         btn.id = `id_despesa_${a.id}`
-        btn.onclick = function (){
-            
+        btn.onclick = function (){            
             
 
-            let id = this.id.replace('id_despesa_', '') 
-                     
+            let id = this.id.replace('id_despesa_', '')                   
             
             document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
 
@@ -312,17 +310,17 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
 
             document.getElementById('modal_conteudo').innerHTML = 'Deseja excliir esse agendamento?'
 
-            let apagar = document.getElementById('modal_btn').innerHTML = 'Excluir'           
+            document.getElementById('modal_btn').innerHTML = 'Excluir'           
             
 
             document.getElementById('modal_btn').className = 'btn btn-danger' 
 
-            $('#modalExclusaoAgendamento').modal('show')     
+            $('#modalExclusaoAgendamento').modal('show')            
             
+                     
+            bd.remover(id)
+                        
             
-            apagar.addEventListener("click", bd.remover(id))        
-            
-        
             
         }     
         
