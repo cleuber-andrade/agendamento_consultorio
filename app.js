@@ -1,6 +1,6 @@
 class Agendar { //2º passo  objeto Agendar 
 
-    constructor(name, cpf, carteira, endereco, sexo, nascimento, tel, plano, especialidades, doutor, data){
+    constructor(name, cpf, carteira, endereco, sexo, nascimento, tel, plano, especialidades, doutor, data,){
         this.name = name
         this.cpf = cpf
         this.carteira = carteira
@@ -11,7 +11,7 @@ class Agendar { //2º passo  objeto Agendar
         this.plano = plano
         this.especialidades = especialidades
         this.doutor = doutor
-        this.data = data
+        this.data = data          
     }
 
     validarDados(){ // 7º passo      validar os dados na app
@@ -299,9 +299,7 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
         btn.className = 'btn btn-danger'
         btn.innerHTML = '<i class="fa fa-trash"></i>'
         btn.id = `id_despesa_${a.id}`
-        btn.onclick = function (){            
-            
-
+        btn.onclick = function (){ 
             let id = this.id.replace('id_despesa_', '')                   
             
             document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
@@ -318,9 +316,7 @@ function carregaListaAgendamento( pesquisar = Array(), filtro = false ){  // 9º
             $('#modalExclusaoAgendamento').modal('show')            
             
                      
-            bd.remover(id)
-                        
-            
+            bd.remover(id)        
             
         }     
         
@@ -361,5 +357,21 @@ function pesquisarAgendamento(){ // 12º passo     botão para pesquisar
     let pesquisar = bd.pesquisar(pesquisa)    
     
     this.carregaListaAgendamento(pesquisar, true) // 14º passo*/
+}
+
+function loginPrincipal(){
+
+    let e_mail = document.getElementById('e_mail').value
+    e_mail = e_mail.toLowerCase()
+    let senha = document.getElementById('senha').value
+    senha = senha.toLowerCase()
+    
+
+    if (e_mail == 'aleatorio_dias@gmail.com' && senha == 123456){
+        window.location.href = 'index.html'
+    } else {
+        alert('Usuário o senhas incorretos')
+    }
+
 }
 
