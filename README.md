@@ -4,16 +4,16 @@
 
 ## 💻 Sobre o projeto
 
-Site autoral feito para fins de agendamentos em consultórios.
+Projeto autoral feito para fins de agendamentos em consultórios.
 
 ## :dart: Objetivo do Projeto
 
 ```bash
-Praticar conhecimentos sobre HTML5, CSS3 e JavaScript
+Criar um sistema onde possa ser feito agentamentos em clinicas médicas e odontológicas.
 
--Explorar a utilização de interação da pagina com JS;
--Aprimorar os conhecimentos em HTML e CSS;
--Utilização de LocalStorage para treinamento;
+-Cadastramento de clientes;
+-Rastreamento de clientes;
+
 
 ```
 ## :wrench: Ferramentas Utilizadas
