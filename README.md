@@ -27,17 +27,17 @@ Praticar conhecimentos sobre HTML5, CSS3 e JavaScript
 
 ## :pager: Tela principal da Sistema de Agendamentos
 
- <img src="https://github.com/cleuber-andrade/Landing_January/blob/main/assets/img/landpage_january.jpg" alt="Tela Principal">
+ <img src="https://github.com/cleuber-andrade/agendamento_consultorio/blob/main/img/agendamento.jpg" alt="Tela Principal">
 
 ## :globe_with_meridians: Link para acessar site no GitHubPages
 
-Para visualizar o site no GitHubPages <a href="https://cleuber-andrade.github.io/Landing_January/" target="_blank">Clique aqui</a>
+Para visualizar o site no GitHubPages <a href="https://cleuber-andrade.github.io/agendamento_consultorio/" target="_blank">Clique aqui</a>
 
 ## 👷 Como rodar
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/cleuber-andrade/landpage_moon_light.git
+git clone https://github.com/cleuber-andrade/agendamento_consultorio.git
 
 # Entrar numa IDE de sua preferência 
 
